@@ -1,7 +1,7 @@
 project "imgui"
 	kind "StaticLib"
 	language "C++"
-    staticruntime "off"
+  staticruntime "On"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -18,7 +18,11 @@ project "imgui"
 		"imstb_rectpack.h",
 		"imstb_textedit.h",
 		"imstb_truetype.h",
-		"imgui_demo.cpp"
+		"imgui_demo.cpp",
+    "backends/imgui_impl_opengl3.h",
+    "backends/imgui_impl_opengl3_loader.h",
+    "backends/imgui_impl_glfw.cpp",
+    "backends/imgui_impl_glfw.h",
 	}
 
 	filter "system:windows"
@@ -27,4 +31,9 @@ project "imgui"
 
 	filter "configurations:Debug"
 		runtime "Debug"
-		symbols 
+		symbols "on" 
+
+	filter "configurations:Release"
+		runtime "Release"
+		symbols "on" 
+
