@@ -25,6 +25,12 @@ project "imgui"
     "backends/imgui_impl_glfw.h",
 	}
 
+	includedirs
+	{
+		".",
+		"backends"
+	}
+
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++17"
